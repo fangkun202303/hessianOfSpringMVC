@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="hessianClient" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl">
+            <value>http://localhost:80/hessianDemo/service/userServiceImpl</value>
+        </property>
+        <property name="serviceInterface">
+            <value>com.modules.hessianDemo.service.UserService</value>
+        </property>
+        <!--新增overloadEnabled属性，并把它的值设置为true，默认是false，则Hessian就能支持方法的重载了。-->
+        <property name="overloadEnabled" value="true" />
+    </bean>
+</beans>

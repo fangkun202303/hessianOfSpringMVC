@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- ??/userServiceImpl?????? -->
+    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+    <bean id="userServiceImpl" class="com.modules.hessianDemo.service.impl.UserServiceImpl"></bean>
+    <!--???HessianServiceExporter???bean?name??/userServiceImpl???SpringMVC???????
+    ???bean?name???/??????Spring???????BeanNameUrlHandlerMapping?
+    ????????????/userServiceImpl?????HessianServiceExporter?
+    ??????????????????????????/service/userServiceImpl?-->
+    <bean name="/userServiceImpl" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="userServiceImpl"/>
+        <property name="serviceInterface" value="com.modules.hessianDemo.service.UserService"/>
+    </bean>
+</beans>

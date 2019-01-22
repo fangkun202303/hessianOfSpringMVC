@@ -1,0 +1,10 @@
+
+#hessian 服务端的忽略
+/hessianDemo/.idea
+/hessianDemo/target/
+/hessianDemo/hessianDemo.iml
+
+#hessian 客户端的忽略
+/lhessianClient/.idea
+/lhessianClient/target/
+/lhessianClient/lhessianClient.iml
